@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 주석 ctrl + /
+      /*
+        주석공간
+        */
+      //    -- 자바스크립트 사용(2) script 로 열고 닫은 공간에 작성
+      function fu_over(obj) {
+        console.log("콜솔에 프린트됨.");
+        console.log(obj);
+        obj.src = "이미지/춘식이.jpeg";
+      }
+      function fu_out(obj) {
+        obj.src = "이미지/춘식이2.jpeg";
+      }
+    </script>
+  </head>
+  <body>
+    <h3>마우스를 올려 보세요</h3>
+    <hr />
+    <img
+      src="이미지/춘식이.jpeg"
+      alt=""
+      onmouseover="fu_over(this)"
+      onmouseout="fu_out(this)"
+    />
+  </body>
+</html>

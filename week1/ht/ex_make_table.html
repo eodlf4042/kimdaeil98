@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>테이블 그리기</title>
+  </head>
+  <body>
+    <h3>테이블 그리기</h3>
+    <hr />
+    <script>
+      //입력받은 수 만큼 행과 열을 가직 테이블을 그리시오
+
+      let result_row = prompt("행을 입력하세요");
+      let result_col = prompt("열을 입력하세요");
+
+      //   let num = prompt("몇칸으로 그려도 될까요?", 5);
+      //   num = parseInt(num);
+      document.write("<h2>" + result_row + "x" + result_col + "</h2>");
+      document.write("<table border ='1'>");
+      document.write("<tbody>");
+
+      //tr 과 td 그리기
+
+      for (let i = 0; i < result_row; i++) {
+        document.write("<tr>");
+
+        for (let j = 0; j < result_col; j++) {
+          document.write("<td>" + (i + 1) + "행" + (j + 1) + "열</td>");
+        }
+        document.write("</tr>");
+      }
+      document.write("</tbody>");
+      document.write("</table>");
+    </script>
+  </body>
+</html>

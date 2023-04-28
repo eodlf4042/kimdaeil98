@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>가위바위보</title>
+    <style></style>
+  </head>
+  <body>
+    <script>
+      function reGame() {
+        location.reload();
+      }
+
+      document.write("<h1>컴퓨터 가위, 바위, 보 맞추기</h1>");
+      let game = prompt("가위, 바위, 보 중 선택하세요?", "가위");
+      let com = Math.ceil(Math.random() * 3);
+      //랜덤함수를 활용하여 가위바위보 게임을 만들어보세요 ^^
+      //이겼을떄 이미지 game_1.jpg
+      //졌을을떄 이미지 game_2.jpg
+      //비겼을때 이미지 game_3.jpg
+      // math_com_1.jpg 컴퓨터 가위이미지
+      // math_com_2.jpg 컴퓨터 바위이미지
+      // math_com_3.jpg 컴퓨터 보 이미지
+      // math_user_1.jpg 유저 가위이미지
+      // math_user_2.jpg 유저 바위이미지
+      // math_user_3.jpg 유저 보 이미지
+      // 랜덤함수를 활용하여 가위바위보 게임을 만들어보세요 ^^
+
+      let result;
+      switch (game) {
+        case "가위":
+          if (com == 2) {
+            result = "이겼습니다!";
+            document.write('<img src="images/game_1.jpg">');
+          } else if (com == 3) {
+            result = "졌습니다.";
+            document.write('<img src="images/game_2.jpg">');
+          } else {
+            result = "비겼습니다.";
+            document.write('<img src="images/game_3.jpg">');
+          }
+          break;
+        case "바위":
+          if (com == 3) {
+            result = "이겼습니다!";
+            document.write('<img src="images/game_1.jpg">');
+          } else if (com == 1) {
+            result = "졌습니다.";
+            document.write('<img src="images/game_2.jpg">');
+          } else {
+            result = "비겼습니다.";
+            document.write('<img src="images/game_3.jpg">');
+          }
+          break;
+        case "보":
+          if (com == 1) {
+            result = "이겼습니다!";
+            document.write('<img src="images/game_1.jpg">');
+          } else if (com == 2) {
+            result = "졌습니다.";
+            document.write('<img src="images/game_2.jpg">');
+          } else {
+            result = "비겼습니다.";
+            document.write('<img src="images/game_3.jpg">');
+          }
+          break;
+        default:
+          result = "잘못된 입력입니다.";
+      }
+
+      document.write("<h2>" + result + "</h2>");
+      document.write('<img src="images/math_com_' + com + '.jpg"> com ');
+      document.write(
+        '<img src="images/math_user_' +
+          (game == "가위" ? 1 : game == "바위" ? 2 : 3) +
+          '.jpg">user'
+      );
+    </script>
+    <button onclick="reGame()">게임 다시하기</button>
+  </body>
+</html>

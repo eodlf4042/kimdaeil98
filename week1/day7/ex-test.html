@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* margin: 0 auto; or margin: 0 가운데 정렬*/
+      .child {
+        width: 800px;
+        height: 800px;
+        margin: 0 auto;
+      }
+      #header {
+        width: 100%;
+        height: 15%;
+        background-color: cyan;
+      }
+      #nav {
+        width: 100%;
+        height: 15%;
+
+        background-color: skyblue;
+      }
+      #scection {
+        width: 15%;
+        height: 70%;
+        float: left;
+        background-color: salmon;
+      }
+      #aside {
+        width: 85%;
+        height: 70%;
+        float: left;
+        background-color: green;
+      }
+      #footer {
+        width: 100%; 
+        height: 15%;
+        background-color: gray;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="child">
+      <header id="header">header(lightcyan)</header>
+      <nav id="nav">nav(lightskyblue)</nav>
+      <aside id="aside">aside(lightgreen)</aside>
+      <scection id="scection">scection(lightsalmon)</scection>
+      <footer id="footer">footer(gray)</footer>
+    </div>
+  </body>
+</html>
