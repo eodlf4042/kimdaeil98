@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쿠키</title>
+    <style>
+        *{
+            text-align: center;
+            position: relative;
+            top: 50px;
+        }
+        body{
+            background-color: black;  /* 원하는 배경색 */
+        }
+        .date{
+            font-size:10;  /* 원하는 폰트 사이즈 */
+            color: blue; /* 날짜가 표기되는 텍스트 색상 */
+        }
+        .time{
+            font-size: 10;  /* 원하는 폰트 사이즈 */
+            font-weight: bold;
+            color:purple  /* 시간이 표기되는 텍스트 색상 */
+        }
+
+
+    </style>
+    <script>
+
+
+        function setClock(){
+            let dateInfo = new Date(); 
+            let hour = modify(dateInfo.getHours());
+            let min = modify(dateInfo.getMinutes());
+            let sec = modify(dateInfo.getSeconds());
+            let year = dateInfo.getFullYear();
+            let month = dateInfo.getMonth() + 1;
+            let dd = dateInfo.getDate();
+            document.getElementById('time').innerHTML = hour + ":" + min + ":" + sec ;
+            document.getElementById('date').innerHTML = year + ":" + month + "월" + dd + "일" ;
+            // 화면에 출력되도록 time, date
+
+        }
+        function modify(time){
+            if(parseInt(time) < 10){
+                return '0'+time;
+
+            }else{
+                return time;
+            }
+        }
+
+
+        window.onload = function(){
+            setClock();
+            //1초마다 setClock 함수 실행
+            setInterval(setClock, 1000);
+
+            // 존재하지 않거나 pop=N <--pop 이라는 이름에 value가 N 이면
+            // 팝업창 열기 (Y이면 팝업 안열음)
+            let pop = GetCookie("pop");
+            if(pop == undefined || pop == "N"){
+                fn_pop();
+            }
+        }
+
+        function fn_pop(){
+            window.open("ex-cookie-pop.html", "myPop", "width=300, height= 300, left=500, top =200")
+        }
+
+        function setCookie(name, value, exp){
+            let date = new Date();
+            date.setTime(date.getTime() + (exp*60*1000)); // 2분
+            let expires = "expires=" + date.toUTCString();
+            document.cookie = name + "=" + escape(value) + ";" + expires + ";path=/";
+        }
+
+        function GetCookie(name){
+            let str = name + "=";
+            // cokie 문자열을 : 기준으로 자르기
+            let pairs = document.cookie.split(";");
+            for(let i =0; i<pairs.length; i++){
+                let pair = pairs[i].trim();
+                // key value 나누기 위해 =기준으로 자르기
+                let unit = pair.split('=');
+                // key 같으면
+                if(unit[0] == name){
+                    // value 리턴
+                    return unescape(unit[1]);
+                }
+            }
+        }
+        // 존재하지 않거나 pop=N <--pop 이라는 이름에 value가 N 이면
+        // 팝업창 열기 (Y이면 팝업 안열음)
+        let pop = GetCokie("pop");
+        if(pop == undefined || pop == "N"){
+            fn_pop();
+        }
+    </script>
+
+</head>
+<body>
+    <h3 style="color: aliceblue;">메인화면</h3>
+    <div id="time" class="time"></div>
+    <div id="date" class="date"></div>   
+</body>
+</html>

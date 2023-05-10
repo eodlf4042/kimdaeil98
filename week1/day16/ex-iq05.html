@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <title>Document</title>
+    <style>
+        div.out{width: 200px; height: 200px; background-color: yellow;}
+    </style>
+    <script>
+        $(document).ready(function(){
+            let click = 0;
+            let doubleClick = 0;
+            let mouseOver = 0;
+
+            $('.out').on('click', function() {
+                clickCount++;
+                $('.out p:nth-child(2) span').text(click);
+            });
+
+            $('.out').on('dblclick', function() {
+                doubleClick++;
+                $('.out p:nth-child(3) span').text(doubleClick);
+            });
+
+            $('.out').on('mouseover', function() {
+                mouseOver++;
+                $('.out p:nth-child(4) span').text(mouseOver);
+            });
+        
+            // $('div.out').click(function(){
+            // $(this).children().eq(1).children().text('클릭함2');
+            // });
+
+
+        });
+    </script>
+</head>
+<body>
+    <div class="out">
+        <p>마우스를 올리세요</p>
+        <p>클릭 횟수 : <span>0</span></p>
+        <p>더블클릭 횟수 : <span>0</span></p>
+        <p>마우스 오버횟수 : <span>0</span></p>
+    </div>
+</body>
+</html>

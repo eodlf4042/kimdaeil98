@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팝업</title>
+    <script>
+        function closePop() { 
+            let chb = document.getElementsByName("chb")[0];
+            // 체크박스가 체크된 경우 쿠키 설정
+            if (chb.checked) {
+                let date = new Date();
+                // 쿠키 만료 시간 설정 (2분 후)
+                date.setTime(date.getTime() + (2 * 60 * 1000));
+                document.cookie = "pop=" + escape("closed") + ";expires=" + date.toGMTString();
+            }
+            // 팝업창 닫기
+            window.close();
+        }
+    </script>
+</head>
+<body>
+    <h3>공지사항 !!</h3>
+    <h4>공지내용 입니다......</h4>
+    <hr>
+    2분 동안은 다시 안보기 <input type="checkbox" name="chb">
+    <button id="but" onclick="closePop()">닫기</button>
+ 
+</body>
+</html>
